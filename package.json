@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
-    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
+    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
+    "db:generate": "drizzle-kit generate:pg --schema db/schema.ts --out ./drizzle",
+    "db:migrate": "tsx ./scripts/migrate.ts",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@clerk/backend": "^1.1.5",
@@ -37,6 +40,7 @@
     "react-wrap-balancer": "^1.1.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
+    "tsx": "4.10.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -46,11 +50,13 @@
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^7.9.0",
     "@typescript-eslint/parser": "^7.9.0",
+    "dotenv": "^16.4.5",
     "drizzle-kit": "^0.20.17",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-tailwindcss": "^3.15.1",
+    "pg": "^8.11.5",
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
