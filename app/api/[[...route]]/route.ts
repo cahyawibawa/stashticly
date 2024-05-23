@@ -1,19 +1,14 @@
-import {Hono } from 'hono'
+import { Hono } from 'hono'
 import { handle } from 'hono/vercel'
-import {z} from "zod"
-import { zValidator } from '@hono/zod-validator'
-import { clerkMiddleware, getAuth } from '@hono/clerk-auth'
-export const runtime = "edge"
+import accounts from './accounts'
 
-const app = new Hono().basePath("/api")
+export const runtime = 'edge'
 
-app
-    .get("/hello", (c)=>{
-        return c.json ({hello: "world"})
-    }
-    
-    
-   )
+const app = new Hono().basePath('/api')
 
+const routes = app.route('/accounts', accounts)
 
 export const GET = handle(app)
+export const POST = handle(app)
+
+export type AppType = typeof routes
