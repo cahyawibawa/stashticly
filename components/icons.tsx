@@ -1,4 +1,5 @@
 import {
+  ArrowUpDown,
   ArrowUpRight,
   BookIcon,
   BookOpenIcon,
@@ -10,8 +11,10 @@ import {
   Loader2,
   Menu,
   MessagesSquare,
+  Plus,
   RotateCw,
   ScanEye,
+  Trash,
   UsersRound,
   WebhookIcon,
 } from 'lucide-react'
@@ -20,6 +23,7 @@ type IconProps = React.HTMLAttributes<SVGElement>
 
 export const Icons = {
   arrowUpRight: ArrowUpRight,
+  arrowUpDown: ArrowUpDown,
   component: Component,
   book: BookIcon,
   bookOpen: BookOpenIcon,
@@ -30,9 +34,11 @@ export const Icons = {
   loader: Loader2,
   leaf: Leaf,
   life: LifeBuoyIcon,
+  plus: Plus,
   menu: Menu,
   reset: RotateCw,
   teams: UsersRound,
+  trash: Trash,
   scan: ScanEye,
   logo: (props: IconProps) => (
     <svg
