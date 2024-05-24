@@ -1,7 +1,7 @@
-import { error } from 'console'
+
 import { client } from '@/lib/hono'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { InferRequestType, InferResponseType } from 'hono'
+import { type InferRequestType, type InferResponseType } from 'hono'
 import { toast } from 'sonner'
 
 type ResponseType = InferResponseType<typeof client.api.accounts.$post>
@@ -17,7 +17,6 @@ export const useCreateAccount = () => {
     },
     onSuccess: () => {
       toast.success('Account created')
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
       queryClient.invalidateQueries({ queryKey: ['accounts'] })
     },
     onError: () => {
