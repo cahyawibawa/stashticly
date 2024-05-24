@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-// import { GlowingStarsBackgroundCard } from '../../glowing-star'
+import { GlowingStarsBackgroundCard } from '../../glowing-star'
 import { Icons } from '../../icons'
 import { Button, buttonVariants } from '../../ui/button'
 import {
@@ -151,7 +151,7 @@ export function MainNav() {
                       >
                         <div className="mb-6 w-[215px]">
                           <NavigationMenuLink asChild>
-                            {/* <GlowingStarsBackgroundCard>
+                            <GlowingStarsBackgroundCard>
                               <span className="text-lg font-medium">
                                 Stashticly
                               </span>
@@ -160,7 +160,7 @@ export function MainNav() {
                                   Best personal finance tracking.
                                 </p>
                               </div>
-                            </GlowingStarsBackgroundCard> */}
+                            </GlowingStarsBackgroundCard>
                           </NavigationMenuLink>
                         </div>
                       </Link>
