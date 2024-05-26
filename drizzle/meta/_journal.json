@@ -8,6 +8,13 @@
       "when": 1716454888593,
       "tag": "0000_loose_tempest",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1716721654169,
+      "tag": "0001_early_lady_vermin",
+      "breakpoints": true
     }
   ]
 }
