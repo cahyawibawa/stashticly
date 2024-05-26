@@ -5,7 +5,7 @@ import { Icons } from '@/components/icons'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
-import { useBulkDeleteAccounts } from '@/features/accounts/api/use-bulk-delete'
+import { useBulkDeleteAccounts } from '@/features/accounts/api/use-bulk-delete-accounts'
 import { useGetAccounts } from '@/features/accounts/api/use-get-accounts'
 import { useNewAccount } from '@/features/accounts/hooks/use-new-account'
 import { columns } from './columns'
@@ -47,7 +47,7 @@ const AccountsPage = () => {
         </CardHeader>
         <CardContent>
           <DataTable
-            filterKey="email"
+            filterKey="name"
             columns={columns}
             data={accounts}
             onDelete={(row) => {
