@@ -15,6 +15,13 @@
       "when": 1716721654169,
       "tag": "0001_early_lady_vermin",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1716773479263,
+      "tag": "0002_foamy_ezekiel_stane",
+      "breakpoints": true
     }
   ]
 }
