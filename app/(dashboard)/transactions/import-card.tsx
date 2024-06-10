@@ -48,6 +48,8 @@ export const ImportCard = ({ data, onCancel, onSubmit }: Props) => {
     })
   }
 
+  const progress = Object.values(selectedColumns).filter(Boolean).length
+
   return (
     <div className="mx-auto -mt-24 w-full max-w-screen-2xl pb-10">
       <Card className="border-none drop-shadow-sm">
@@ -55,9 +57,17 @@ export const ImportCard = ({ data, onCancel, onSubmit }: Props) => {
           <CardTitle className="line-clamp-1 text-xl">
             Import Transaction
           </CardTitle>
-          <div className="flex items-center gap-x-2">
-            <Button onClick={onCancel} size="sm">
+          <div className="flex flex-col items-center gap-2 lg:flex-row">
+            <Button onClick={onCancel} size="sm" className="w-full lg:w-auto">
               Cancel
+            </Button>
+            <Button
+              size="sm"
+              disabled={progress < requiredOptions.length}
+              onClick={() => {}}
+              className="w-full lg:w-auto"
+            >
+              Continue ({progress} / {requiredOptions.length})
             </Button>
           </div>
         </CardHeader>
