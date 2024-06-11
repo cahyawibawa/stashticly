@@ -145,9 +145,9 @@ const app = new Hono()
     zValidator(
       'json',
       z.array(
-       insertTransactionSchema.omit({
-         id: true,
-       })
+        insertTransactionSchema.omit({
+          id: true,
+        })
       )
     ),
     async (c) => {
@@ -170,7 +170,6 @@ const app = new Hono()
 
       return c.json({ data })
     }
-    
   )
   .post(
     '/bulk-delete',
