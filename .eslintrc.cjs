@@ -28,6 +28,7 @@ const config = {
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/no-unnecessary-type-assertion': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/await-thenable': 'off',
     '@typescript-eslint/consistent-type-imports': [
       'warn',
       {
