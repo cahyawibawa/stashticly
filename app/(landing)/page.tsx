@@ -1,60 +1,65 @@
-import { Announcement } from '@/components/announcement'
-import { Icons } from '@/components/icons'
-import {
-  PageActions,
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from '@/components/page-header'
-import { GridPattern } from '@/components/pattern'
+/* eslint-disable @next/next/no-img-element */
+import SiteHeader from '@/components/layout/header/site-header'
+import { Logo } from '@/components/logo'
 import { Shell } from '@/components/shell'
-import { buttonVariants } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { urls } from '@/config/urls'
-import { cn } from '@/lib/utils'
+import { siteConfig } from '@/config/site'
 import Image from 'next/image'
-import Link from 'next/link'
 
 export default function Home() {
   return (
-    <Shell>
-      <GridPattern />
-      <PageHeader>
-        <Announcement />
-        <PageHeaderHeading>
-          Manage your personal finances
-          <br />
-          <span>in the right way</span>
-        </PageHeaderHeading>
-        <PageHeaderDescription>
-          Create budgets & financial plans, track your net-worth, trends,
-          insights and more.
-        </PageHeaderDescription>
-        <PageActions>
-          <Link href="/sign-up" className={cn(buttonVariants())}>
-            Get Started
-          </Link>
-          <Link
-            target="_blank"
-            rel="noreferrer"
-            href={urls.github}
-            className={cn(buttonVariants({ variant: 'outline' }))}
-          >
-            <Icons.gitHub className="mr-2 size-4" />
-            GitHub
-          </Link>
-        </PageActions>
-      </PageHeader>
-      <Card className="mx-auto -mt-px max-w-6xl rounded-md p-2 shadow-2xl">
+    <Shell variant="markdown">
+      <SiteHeader />
+      <div className="text-center">
+        <div className="mx-auto mb-4 max-w-xl pt-8 text-[28px] md:text-3xl">
+          Stashticly <Logo className="inline w-8 grayscale md:w-auto" /> is a{' '}
+          <em className="relative">
+            <span className="border-b-2 border-dotted border-gray-400">
+              fully
+            </span>
+            <sup>*</sup>
+            <span className="absolute -top-8 left-2 w-40 -rotate-3 text-left text-xs text-gray-400 md:-top-7 md:left-16 md:w-64">
+              <sup>*</sup>your finances are secure
+            </span>
+          </em>{' '}
+          open-source
+          <div className="inline-flex scale-[0.8] rounded-md border border-gray-200 shadow-[0_1px_8px_0_rgba(0,0,0,0.04)] md:scale-100">
+            <a
+              href={siteConfig.links.github}
+              className="flex items-center justify-center rounded-l-md border-r border-gray-200 bg-gray-100 px-2 py-1.5 shadow-[inset_0_-2px_5px_0_rgba(0,0,0,0.07)]"
+            >
+              <img
+                src="/images/github.svg"
+                alt="GitHub icon"
+                className="size-5"
+              />
+            </a>
+            <span className="rounded-r-md bg-white px-2 py-1.5 text-sm font-medium shadow-[inset_0_-2px_5px_0_rgba(0,0,0,0.07)]"></span>
+          </div>
+          your personal finances{' '}
+          <img
+            src="/images/chart.svg"
+            alt="Chart"
+            className="inline w-8 md:w-auto"
+          />{' '}
+          built by a small team{' '}
+          <img
+            src="/images/teams.png"
+            alt="Stashticly Team"
+            className="inline h-8 md:h-9"
+          />{' '}
+        </div>
+      </div>
+
+      <Card className="mx-auto -mt-px max-w-6xl rounded-3xl p-3 shadow-2xl">
         <Image
-          src="/images/hero.webp"
-          width={1300}
-          height={500}
+          src="/images/dashboard.png"
+          width={1100}
+          height={600}
           alt="preview image"
           loading="lazy"
-          className="block rounded sm:rounded-lg"
+          className="w-full rounded-xl border-muted shadow-xl"
         />
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-white to-35%" /> */}
       </Card>
     </Shell>
   )
