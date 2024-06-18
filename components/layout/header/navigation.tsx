@@ -25,10 +25,10 @@ const routes = [
     href: '/categories',
     label: 'categories',
   },
-  {
-    href: '/settings',
-    label: 'settings',
-  },
+  // {
+  //   href: '/settings',
+  //   label: 'settings',
+  // },
 ]
 
 export const Navigation = () => {
