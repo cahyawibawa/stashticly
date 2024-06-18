@@ -10,7 +10,7 @@ export const Logo: React.FC<LogoProps> = ({ className }) => {
       type="triangle"
       index={13}
       noise={false}
-      size={20}
+      size={24}
     />
   )
 }
