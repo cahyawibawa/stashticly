@@ -18,10 +18,10 @@ export default function Home() {
             <span className="border-b-2 border-dotted border-muted-foreground">
               fully
             </span>
-            <sup>*</sup>
+            {/* <sup>*</sup>
             <span className="absolute -top-8 left-2 w-40 -rotate-3 text-left text-xs text-muted-foreground md:-top-6 md:left-16 md:w-40">
               <sup>*</sup>your finances are secure
-            </span>
+            </span> */}
           </em>{' '}
           open-source
           <div className="inline-flex scale-[0.8] rounded-md border border-gray-200 shadow-[0_1px_8px_0_rgba(0,0,0,0.04)] md:scale-100">
@@ -52,14 +52,14 @@ export default function Home() {
         </div>
       </div>
 
-      <Card className="mx-auto -mt-px max-w-6xl rounded-3xl p-3 drop-shadow-md">
+      <Card className="mx-auto -mt-px max-w-6xl rounded-xl p-2 ">
         <Image
           src="/images/hero.png"
           width={1200}
           height={600}
           alt="preview image"
           loading="lazy"
-          className="w-full rounded-xl border-muted"
+          className="w-full rounded-xl border-muted drop-shadow-md"
         />
       </Card>
       <SiteFooter />

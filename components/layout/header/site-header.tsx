@@ -1,4 +1,3 @@
-import { Icons } from '@/components/icons'
 import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import { siteConfig } from '@/config/site'
@@ -8,7 +7,7 @@ import React from 'react'
 
 const SiteHeader = () => {
   return (
-    <nav className="mx-auto flex w-full max-w-6xl items-center justify-between p-5">
+    <nav className="mx-auto flex w-full items-center justify-between p-3">
       <Link href="/" className="mr-6 flex items-center space-x-2">
         <Logo className="size-6 grayscale" />
         <span className="font-mono text-xl font-semibold tracking-tighter">
