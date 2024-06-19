@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import SiteHeader from '@/components/layout/header/site-header'
+import { SiteFooter } from '@/components/layout/site-footer'
 import { Logo } from '@/components/logo'
 import { Shell } from '@/components/shell'
 import { Card } from '@/components/ui/card'
@@ -11,14 +12,14 @@ export default function Home() {
     <Shell variant="markdown">
       <SiteHeader />
       <div className="text-center">
-        <div className="mx-auto mb-4 max-w-xl pt-8 text-[28px] md:text-3xl">
+        <div className="mx-auto mb-4 max-w-xl pt-8 text-[28px] font-normal md:text-3xl">
           Stashticly <Logo className="inline w-8 grayscale md:w-auto" /> is a{' '}
           <em className="relative">
-            <span className="border-b-2 border-dotted border-gray-400">
+            <span className="border-b-2 border-dotted border-muted-foreground">
               fully
             </span>
             <sup>*</sup>
-            <span className="absolute -top-8 left-2 w-40 -rotate-3 text-left text-xs text-gray-400 md:-top-7 md:left-16 md:w-64">
+            <span className="absolute -top-8 left-2 w-40 -rotate-3 text-left text-xs text-muted-foreground md:-top-6 md:left-16 md:w-40">
               <sup>*</sup>your finances are secure
             </span>
           </em>{' '}
@@ -36,7 +37,7 @@ export default function Home() {
             </a>
             <span className="rounded-r-md bg-white px-2 py-1.5 text-sm font-medium shadow-[inset_0_-2px_5px_0_rgba(0,0,0,0.07)]"></span>
           </div>
-          your personal finances{' '}
+          your expense tracker{' '}
           <img
             src="/images/chart.svg"
             alt="Chart"
@@ -51,16 +52,17 @@ export default function Home() {
         </div>
       </div>
 
-      <Card className="mx-auto -mt-px max-w-6xl rounded-3xl p-3 shadow-2xl">
+      <Card className="mx-auto -mt-px max-w-6xl rounded-3xl p-3 drop-shadow-md">
         <Image
-          src="/images/dashboard.png"
-          width={1100}
+          src="/images/hero.png"
+          width={1200}
           height={600}
           alt="preview image"
           loading="lazy"
-          className="w-full rounded-xl border-muted shadow-xl"
+          className="w-full rounded-xl border-muted"
         />
       </Card>
+      <SiteFooter />
     </Shell>
   )
 }

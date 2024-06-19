@@ -11,7 +11,7 @@ const SiteHeader = () => {
     <nav className="mx-auto flex w-full max-w-6xl items-center justify-between p-5">
       <Link href="/" className="mr-6 flex items-center space-x-2">
         <Logo className="size-6 grayscale" />
-        <span className="font-mono text-xl font-semibold">
+        <span className="font-mono text-xl font-semibold tracking-tighter">
           {siteConfig.name}
         </span>
       </Link>
@@ -29,13 +29,13 @@ const SiteHeader = () => {
           </Button>
         </SignedIn>
 
-        <Link
+        {/* <Link
           target="_blank"
           href={siteConfig.links.github}
           className="flex items-center justify-center rounded-full p-2 text-lg transition-all hover:text-zinc-800"
         >
           <Icons.gitHub className="size-5" />
-        </Link>
+        </Link> */}
       </div>
     </nav>
   )
