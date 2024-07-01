@@ -1,11 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
+import { FeaturesCard } from '@/components/features'
 import SiteHeader from '@/components/layout/header/site-header'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { Logo } from '@/components/logo'
 import { Shell } from '@/components/shell'
+import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { siteConfig } from '@/config/site'
+import { getGitHubStars } from '@/lib/github'
+import { numberFormatter } from '@/lib/utils'
 import Image from 'next/image'
+import { Suspense } from 'react'
 
 export default function Home() {
   return (
@@ -23,7 +28,7 @@ export default function Home() {
               <sup>*</sup>your finances are secure
             </span> */}
           </em>{' '}
-          open-source
+          open-source{' '}
           <div className="inline-flex scale-[0.8] rounded-md border border-gray-200 shadow-[0_1px_8px_0_rgba(0,0,0,0.04)] md:scale-100">
             <a
               href={siteConfig.links.github}
@@ -35,9 +40,13 @@ export default function Home() {
                 className="size-5"
               />
             </a>
-            <span className="rounded-r-md bg-white px-2 py-1.5 text-sm font-medium shadow-[inset_0_-2px_5px_0_rgba(0,0,0,0.07)]"></span>
+            <span className="rounded-r-md bg-white px-2 py-1.5 font-medium shadow-[inset_0_-2px_5px_0_rgba(0,0,0,0.07)]">
+              <Suspense fallback={<StarsBadgeFallback />}>
+                <StarsBadge />
+              </Suspense>
+            </span>
           </div>
-          your expense tracker{' '}
+          expense tracker{' '}
           <img
             src="/images/chart.svg"
             alt="Chart"
@@ -58,11 +67,38 @@ export default function Home() {
           width={1200}
           height={600}
           alt="preview image"
-          loading="lazy"
           className="w-full rounded-xl border-muted drop-shadow-md"
+          priority
         />
       </Card>
+      <div className="container py-24">
+        <h2 className="text-center text-2xl  sm:text-3xl">
+          Start instantly.
+          <br />
+          Make it yours, Ship within seconds.
+        </h2>
+      </div>
+      <FeaturesCard />
       <SiteFooter />
     </Shell>
+  )
+}
+
+function StarsBadgeFallback() {
+  return (
+    <Badge variant="secondary" className="ml-1">
+      ~
+    </Badge>
+  )
+}
+
+async function StarsBadge() {
+  const stars = await getGitHubStars()
+  return (
+    <>
+      <Badge variant="outline" className="hidden border-none p-0 sm:block">
+        {numberFormatter(stars)}
+      </Badge>
+    </>
   )
 }
