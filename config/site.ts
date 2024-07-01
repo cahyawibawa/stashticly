@@ -80,13 +80,8 @@ export const siteConfig = {
           external: true,
         },
         {
-          title: 'midday.ai',
-          href: 'https://www.midday.ai',
-          external: true,
-        },
-        {
-          title: 'maybe.co',
-          href: 'https://maybe.co',
+          title: 'ui/topia',
+          href: 'https://www.uitopia.xyz',
           external: true,
         },
         {

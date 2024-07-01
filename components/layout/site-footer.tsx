@@ -5,7 +5,7 @@ import { Logo } from '../logo'
 
 export const SiteFooter = () => {
   return (
-    <footer>
+    <footer className="mt-8">
       <section className="flex flex-col gap-10 p-3 lg:flex-row lg:gap-20">
         <section className="flex flex-col gap-y-4">
           <Link href="/" className="flex w-fit items-center space-x-2">
