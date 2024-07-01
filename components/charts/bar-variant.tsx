@@ -1,7 +1,5 @@
 import { format } from 'date-fns'
 import {
-  Area,
-  AreaChart,
   Bar,
   BarChart,
   CartesianGrid,
