@@ -30,6 +30,7 @@ import {
   Trash,
   TriangleAlert,
   UsersRound,
+  X,
   Zap,
 } from 'lucide-react'
 
@@ -68,6 +69,7 @@ export const Icons = {
   scan: ScanEye,
   sdk: FolderTreeIcon,
   zap: Zap,
+  x: X,
   logo: (props: IconProps) => (
     <svg
       viewBox="0 0 400 400"

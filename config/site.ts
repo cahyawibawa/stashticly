@@ -75,7 +75,7 @@ export const siteConfig = {
       title: 'Credits',
       items: [
         {
-          title: 'Antonio',
+          title: 'YTCodeWithAntonio',
           href: 'https://www.codewithantonio.com',
           external: true,
         },
@@ -85,8 +85,8 @@ export const siteConfig = {
           external: true,
         },
         {
-          title: 'expense.fyi',
-          href: 'https://expense.fyi/',
+          title: 'MagicUI',
+          href: 'https://magicui.design/',
           external: true,
         },
       ],

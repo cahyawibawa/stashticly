@@ -1,23 +1,42 @@
 /* eslint-disable @next/next/no-img-element */
+'use client'
+
 import { FeaturesCard } from '@/components/features'
+import { Icons } from '@/components/icons'
 import SiteHeader from '@/components/layout/header/site-header'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { Logo } from '@/components/logo'
+import {
+  PageActions,
+  PageHeader,
+  PageHeaderHeading,
+} from '@/components/page-header'
 import { Shell } from '@/components/shell'
+import Button from '@/components/tailus-ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { siteConfig } from '@/config/site'
 import { getGitHubStars } from '@/lib/github'
 import { numberFormatter } from '@/lib/utils'
+import { SignedIn, SignedOut, useUser } from '@clerk/nextjs'
 import Image from 'next/image'
-import { Suspense } from 'react'
+import { useRouter } from 'next/navigation'
+import { Suspense, useEffect } from 'react'
 
 export default function Home() {
+  const { user, isLoaded } = useUser()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (isLoaded && user) {
+      router.push('/dashboard')
+    }
+  }, [isLoaded, user, router])
   return (
     <Shell variant="markdown">
       <SiteHeader />
-      <div className="text-center">
-        <div className="mx-auto mb-4 max-w-xl pt-8 text-[28px] font-normal md:text-3xl">
+      <PageHeader className="pt-32 md:pt-40 lg:pt-20">
+        <PageHeaderHeading className="max-w-xl md:text-[35px]">
           Stashticly <Logo className="inline w-8 grayscale md:w-auto" /> is a{' '}
           <em className="relative">
             <span className="border-b-2 border-dotted border-muted-foreground">
@@ -46,20 +65,36 @@ export default function Home() {
               </Suspense>
             </span>
           </div>
-          expense tracker{' '}
+          personal expense tracker{' '}
           <img
             src="/images/chart.svg"
             alt="Chart"
             className="inline w-8 md:w-auto"
-          />{' '}
-          built by a small team{' '}
-          <img
-            src="/images/teams.png"
-            alt="Stashticly Team"
-            className="inline h-8 md:h-9"
-          />{' '}
-        </div>
-      </div>
+          />
+        </PageHeaderHeading>
+        <PageActions>
+          <SignedOut>
+            <Button.Root href="/sign-in" size="xs" intent="neutral">
+              <Button.Label className="text-xs">Get Started</Button.Label>
+            </Button.Root>
+          </SignedOut>
+          <SignedIn>
+            <Button.Root size="xs" intent="neutral">
+              <Button.Label className="text-xs">Dashboard</Button.Label>
+            </Button.Root>
+          </SignedIn>
+          <Button.Root
+            size="xs"
+            variant="outlined"
+            href={siteConfig.links.github}
+          >
+            <Button.Icon size="xs">
+              <Icons.gitHub />
+            </Button.Icon>
+            <Button.Label className="text-xs">Self Host</Button.Label>
+          </Button.Root>
+        </PageActions>
+      </PageHeader>
 
       <Card className="mx-auto -mt-px max-w-6xl rounded-xl p-2 ">
         <Image
@@ -72,10 +107,10 @@ export default function Home() {
         />
       </Card>
       <div className="container py-24">
-        <h2 className="text-center text-2xl  sm:text-3xl">
-          Start instantly.
+        <h2 className="text-center text-2xl font-semibold sm:text-3xl">
+          Save Money.
           <br />
-          Make it yours, Ship within seconds.
+          Without thinking about it.
         </h2>
       </div>
       <FeaturesCard />
@@ -96,7 +131,7 @@ async function StarsBadge() {
   const stars = await getGitHubStars()
   return (
     <>
-      <Badge variant="outline" className="hidden border-none p-0 sm:block">
+      <Badge variant="outline" className="border-none p-0 sm:block">
         {numberFormatter(stars)}
       </Badge>
     </>

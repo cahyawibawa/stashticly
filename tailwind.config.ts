@@ -1,12 +1,12 @@
+import { grays, palettes, rounded } from '@tailus/themer'
 import type { Config } from 'tailwindcss'
 
 const config = {
   darkMode: ['class'],
   content: [
-    './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    './node_modules/@tailus/themer/dist/components/**/*.{js,ts}',
   ],
   prefix: '',
   theme: {
@@ -19,6 +19,7 @@ const config = {
     },
     extend: {
       colors: {
+        ...palettes.trust,
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -84,7 +85,7 @@ const config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), rounded, grays],
 } satisfies Config
 
 export default config
