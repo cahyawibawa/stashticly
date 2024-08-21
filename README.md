@@ -40,6 +40,11 @@
 - [TailwindCSS](https://tailwindcss.com/) & [shadcn/ui](https://ui.shadcn.com/) Styling
 - [Recharts](https://recharts.org/) Charts
 
+## Roadmap
+
+- [ ] Upgrade to shadcn/iu charts
+- [ ] implement [Motion Number](https://motion-number.barvian.me/) instead React-Countup
+
 ## Installation
 
 Clone & create this repo locally with the following command:
